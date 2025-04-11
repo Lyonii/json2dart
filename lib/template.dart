@@ -44,6 +44,10 @@ class DefaultTemplate extends Template {
 
   @override
   String declare() {
+    if (main.isCamelCase) {
+      return """@JsonSerializable(fieldRename: FieldRename.snake)
+  class $className extends Object ${interface()}{"""
+    }
     return """@JsonSerializable()
   class $className extends Object ${interface()}{""";
   }
@@ -64,9 +68,8 @@ class DefaultTemplate extends Template {
     var fieldList = FieldHelper(srcJson).getFields();
     var sb = StringBuffer();
     fieldList.forEach((f) {
-      sb.writeln();
-      if (main.useJsonKey) {
-        sb.writeln("  @JsonKey(name: '${f.nameString}')");
+      if (main.useJsonKey && !main.isCamelCase) {
+        sb.writeln("@JsonKey(name: '${f.nameString}')");
       }
       String nameString;
       if (main.isCamelCase) {
@@ -74,7 +77,7 @@ class DefaultTemplate extends Template {
       } else {
         nameString = f.nameString;
       }
-      sb.writeln("  ${f.typeString} $nameString;");
+      sb.writeln("${f.typeString} $nameString;");
     });
     return sb.toString();
   }
@@ -98,9 +101,9 @@ class DefaultTemplate extends Template {
   @override
   String method() {
     if (main.isStaticMethod) {
-      return "  static $className fromJson(Map<String, dynamic> srcJson) => _\$${className}FromJson(srcJson);";
+      return "static $className fromJson(Map<String, dynamic> srcJson) => _\$${className}FromJson(srcJson);";
     }
-    return "  factory $className.fromJson(Map<String, dynamic> srcJson) => _\$${className}FromJson(srcJson);";
+    return "factory $className.fromJson(Map<String, dynamic> srcJson) => _\$${className}FromJson(srcJson);";
   }
 
   List<Field> get fieldList => FieldHelper(srcJson).getFields();
@@ -179,7 +182,7 @@ class V1Template extends DefaultTemplate {
     result.writeln(super.method());
     result.writeln();
     result.write(
-        "  Map<String, dynamic> toJson() => _\$${className}ToJson(this);");
+        "Map<String, dynamic> toJson() => _\$${className}ToJson(this);");
     return result.toString();
   }
 }
