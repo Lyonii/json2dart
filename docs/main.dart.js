@@ -2715,7 +2715,7 @@ return u.a8()+"\n"+u.aa()+"\n"+u.a7()+"\n\n"+u.I(0)+"\n\n"+u.a9()+"\n\n  "}}
 X.I.prototype={
 a7:function(){var u=new P.R("")
 C.a.n(new X.ac(this.a).L(),new X.bw(this,u))
-return"  "+this.b+"("+u.h(0)+");"},
+return"  "+X.bj(this.ar(this.b))+"("+u.h(0)+");"},
 a8:function(){return H.B($.aI) ? "@JsonSerializable(fieldRename: FieldRename.snake)\nclass "+X.bj(this.ar(this.b))+" extends Object "+this.at()+"{" : "@JsonSerializable()\nclass "+X.bj(this.ar(this.b))+" extends Object "+this.at()+"{"},
 at:function(){return"with _$"+this.b+"SerializerMixin"},
 a9:function(){return"}"},
