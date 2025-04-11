@@ -2716,7 +2716,7 @@ X.I.prototype={
 a7:function(){var u=new P.R("")
 C.a.n(new X.ac(this.a).L(),new X.bw(this,u))
 return"  "+this.b+"("+u.h(0)+");"},
-a8:function(){return H.B($.aI) ? "@JsonSerializable(fieldRename: FieldRename.snake)\nclass "+this.a.ar(this.b)+" extends Object "+this.at()+"{" : "@JsonSerializable()\nclass "+this.a.ar(this.b)+" extends Object "+this.at()+"{"},
+a8:function(){return H.B($.aI) ? "@JsonSerializable(fieldRename: FieldRename.snake)\nclass "+this.b+" extends Object "+this.at()+"{" : "@JsonSerializable()\nclass "+this.b+" extends Object "+this.at()+"{"},
 at:function(){return"with _$"+this.b+"SerializerMixin"},
 a9:function(){return"}"},
 aa:function(){var u,t=new P.R("")
