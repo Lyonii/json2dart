@@ -2716,7 +2716,7 @@ X.I.prototype={
 a7:function(){var u=new P.R("")
 C.a.n(new X.ac(this.a).L(),new X.bw(this,u))
 return"  "+this.b+"("+u.h(0)+");"},
-a8:function(){return"@JsonSerializable()\n  class "+this.b+" extends Object "+this.at()+"{"},
+a8:function(){return H.B($.aI) ? "@JsonSerializable(fieldRename: FieldRename.snake)\n  class "+this.b+" extends Object "+this.at()+"{" : "@JsonSerializable()\n  class "+this.b+" extends Object "+this.at()+"{"},
 at:function(){return"with _$"+this.b+"SerializerMixin"},
 a9:function(){return"}"},
 aa:function(){var u,t=new P.R("")
@@ -2728,8 +2728,8 @@ for(u=0,t="";u<r.length;++u){s=r[u]
 t+=u===0?X.eJ(s):X.bj(s)}return t.charCodeAt(0)==0?t:t},
 I:function(a){var u,t="FromJson(srcJson);"
 if(H.B($.e0)){u=this.b
-return"  static "+u+" fromJson(Map<String, dynamic> srcJson) => _$"+u+t}u=this.b
-return"  factory "+u+".fromJson(Map<String, dynamic> srcJson) => _$"+u+t},
+return"static "+u+" fromJson(Map<String, dynamic> srcJson) => _$"+u+t}u=this.b
+return"factory "+u+".fromJson(Map<String, dynamic> srcJson) => _$"+u+t},
 gas:function(){return new X.ac(this.a).L()},
 aG:function(){var u=this
 if(!!u.$iaW)return u
@@ -2742,10 +2742,9 @@ X.bx.prototype={
 $1:function(a){var u,t
 H.h(a,"$iL")
 u=this.b
-u.a+="\n"
-if(H.B($.e4))u.a+="  @JsonKey(name: '"+H.i(a.gw())+"')\n"
+if(H.B($.e4) && !H.B($.aI))u.a+="@JsonKey(name: '"+H.i(a.gw())+"')\n"
 t=H.B($.aI)?X.eJ(this.a.ar(a.gw())):a.gw()
-u.a+="  "+a.gac()+" "+H.i(t)+";\n"},
+u.a+=""+a.gac()+" "+H.i(t)+";\n"},
 $S:6}
 X.aW.prototype={
 a8:function(){var u,t=this.b
@@ -2766,7 +2765,7 @@ X.aC.prototype={
 at:function(){return""},
 I:function(a){var u=this.aK(0)
 u+"\n"
-u=u+"\n\n"+("  Map<String, dynamic> toJson() => _$"+this.b+"ToJson(this);")
+u=u+"\n\n"+("Map<String, dynamic> toJson() => _$"+this.b+"ToJson(this);")
 return u.charCodeAt(0)==0?u:u}}
 X.ac.prototype={
 aj:function(a){var u
