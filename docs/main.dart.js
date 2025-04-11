@@ -2727,7 +2727,7 @@ ar:function(a){var u,t,s,r=a.split("_")
 for(u=0,t="";u<r.length;++u){s=r[u]
 t+=u===0?X.eJ(s):X.bj(s)}return t.charCodeAt(0)==0?t:t},
 I:function(a){var u,t="FromJson(srcJson);"
-if(H.B($.e0)){u=this.b
+if(H.B($.e0)){u=X.bj(this.ar(this.b))
 return"  static "+u+" fromJson(Map<String, dynamic> srcJson) => _$"+u+t}u=this.b
 return"  factory "+u+".fromJson(Map<String, dynamic> srcJson) => _$"+u+t},
 gas:function(){return new X.ac(this.a).L()},
@@ -2747,7 +2747,7 @@ t=H.B($.aI)?X.eJ(this.a.ar(a.gw())):a.gw()
 u.a+="  "+a.gac()+" "+H.i(t)+";\n"},
 $S:6}
 X.aW.prototype={
-a8:function(){var u,t=this.b
+a8:function(){var u,t=X.bj(this.ar(this.b))
 t="List<"+t+"> get"+t+"List(List<dynamic> list){\n    List<"+t+"> result = [];\n    list.forEach((item){\n      result.add("+t+".fromJson(item));\n    });\n    return result;\n  }\n"
 u=this.d.a8()
 t+=u
@@ -2765,7 +2765,7 @@ X.aC.prototype={
 at:function(){return""},
 I:function(a){var u=this.aK(0)
 u+"\n"
-u=u+"\n\n"+("  Map<String, dynamic> toJson() => _$"+this.b+"ToJson(this);")
+u=u+"\n\n"+("  Map<String, dynamic> toJson() => _$"+X.bj(this.ar(this.b))+"ToJson(this);")
 return u.charCodeAt(0)==0?u:u}}
 X.ac.prototype={
 aj:function(a){var u
@@ -2802,7 +2802,7 @@ gU:function(){var u,t,s=this.a,r=J.N(s),q=r.gp(s)
 if(q)return"dynamic"
 u=r.k(s,0)
 if(!!J.q(u).$ir)t="List<"+new X.at(u,"").gU()+">"
-else if(H.Z(u,"$iv",[P.e,null],"$av"))t=X.bj(this.b)
+else if(H.Z(u,"$iv",[P.e,null],"$av"))t=X.bj(this.ar(this.b))
 else if(typeof u==="number"&&Math.floor(u)===u)t="int"
 else if(typeof u==="number")t="double"
 else if(typeof u==="string")t="String"
